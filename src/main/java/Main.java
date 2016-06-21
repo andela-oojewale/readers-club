@@ -1,21 +1,34 @@
 import main.Member;
+import members.MembersQueue;
 import members.Staff;
 import members.Student;
+import org.joda.time.DateTime;
 
-import java.util.Date;
 
-/**
- * Created by andela on 21/06/2016.
- */
 public class Main {
     public static void main(String[] args) {
-        Date  date = new Date("Tue Jun 21 22:11:44 WAT 2016");
+        DateTime date =  DateTime.now();
         Member olaide = new Staff();
+        olaide.setFullname("Olaide");
+        olaide.setDateOfReg(new DateTime("2016-06-21T22:23:23.605+01:00"));
         Member oscar = new Staff();
+        oscar.setFullname("Oscar");
+        oscar.setDateOfReg(new DateTime("2016-07-21T22:23:23.605+01:00"));
         Member tipsy = new Student();
+        tipsy.setFullname("Tipsy");
+        tipsy.setDateOfReg(new DateTime("2016-07-21T22:23:23.605+01:00"));
         Member adebyi = new Student();
+        adebyi.setFullname("Adebiyi");
+        adebyi.setDateOfReg(new DateTime("2016-06-21T22:23:23.605+01:00"));
 
-        System.out.println("date = " + date.toString());
+        MembersQueue members = new MembersQueue();
+        members.addMember(olaide);
+        members.addMember(adebyi);
+        members.addMember(tipsy);
+        members.addMember(oscar);
+        while (!members.getMemberQueue().isEmpty()){
+            System.out.println("members = " + members.removeMember().getFullname());
+        }
 
     }
 }

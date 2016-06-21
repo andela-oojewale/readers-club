@@ -1,4 +1,6 @@
 package main;
+import org.joda.time.DateTime;
+
 import java.util.Date;
 
 public class Member {
@@ -8,7 +10,7 @@ public class Member {
     private String phoneNumber;
     private String email;
     private char gender;
-    private Date dateOfReg;
+    private DateTime dateOfReg;
 
     public Member() {
     }
@@ -19,7 +21,7 @@ public class Member {
         this.dateOfBirth = dateOfBirth;
         this.phoneNumber = phoneNumber;
         this.email = email;
-        this.dateOfReg = new Date();
+
     }
 
     public void borrowBook(Book book) {
@@ -70,11 +72,11 @@ public class Member {
         this.gender = gender;
     }
 
-    public Date getDateOfReg() {
+    public DateTime getDateOfReg() {
         return dateOfReg;
     }
 
-    public void setDateOfReg(Date dateOfReg) {
+    public void setDateOfReg(DateTime dateOfReg) {
         this.dateOfReg = dateOfReg;
     }
 
