@@ -77,4 +77,21 @@ public class Member {
     public void setDateOfReg(Date dateOfReg) {
         this.dateOfReg = dateOfReg;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Member member = (Member) o;
+
+        if (gender != member.gender) return false;
+        if (fullname != null ? !fullname.equals(member.fullname) : member.fullname != null) return false;
+        if (dateOfBirth != null ? !dateOfBirth.equals(member.dateOfBirth) : member.dateOfBirth != null) return false;
+        if (phoneNumber != null ? !phoneNumber.equals(member.phoneNumber) : member.phoneNumber != null) return false;
+        if (email != null ? !email.equals(member.email) : member.email != null) return false;
+        return dateOfReg != null ? dateOfReg.equals(member.dateOfReg) : member.dateOfReg == null;
+
+    }
+
 }
