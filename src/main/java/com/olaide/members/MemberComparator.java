@@ -1,6 +1,6 @@
-package members;
+package com.olaide.members;
 
-import main.Member;
+import com.olaide.main.Member;
 
 import java.util.Comparator;
 

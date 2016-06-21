@@ -1,7 +1,5 @@
-package main;
+package com.olaide.main;
 import org.joda.time.DateTime;
-
-import java.util.Date;
 
 public class Member {
 

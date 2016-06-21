@@ -1,7 +1,9 @@
-import main.Member;
-import members.MembersQueue;
-import members.Staff;
-import members.Student;
+package com.olaide;
+
+import com.olaide.main.Member;
+import com.olaide.members.MembersQueue;
+import com.olaide.members.Staff;
+import com.olaide.members.Student;
 import org.joda.time.DateTime;
 
 
@@ -27,7 +29,7 @@ public class Main {
         members.addMember(tipsy);
         members.addMember(oscar);
         while (!members.getMemberQueue().isEmpty()){
-            System.out.println("members = " + members.removeMember().getFullname());
+            System.out.println("com.olaide.members = " + members.removeMember().getFullname());
         }
 
     }

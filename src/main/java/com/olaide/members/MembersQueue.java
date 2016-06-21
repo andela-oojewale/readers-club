@@ -1,5 +1,5 @@
-package members;
-import main.Member;
+package com.olaide.members;
+import com.olaide.main.Member;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;

@@ -1,4 +1,4 @@
-package main;
+package com.olaide.main;
 
 public class Book {
     private String Bookname;
