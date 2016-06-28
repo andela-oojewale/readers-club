@@ -48,5 +48,22 @@ public class Book {
         this.isbnNumber = isbnNumber;
     }
 
+    public void borrowBook(){
+        if (this.getNumberOfCopies() > 0){
+            Integer num_books_rem =  this.getNumberOfCopies() - 1;
+            System.out.println(num_books_rem + " copies of the book '" + this.getBookname() + "' remaining");
+            this.setNumberOfCopies(num_books_rem);
+        }
+        else {
+            System.out.println("Book is currently unavailable. You can borrow another book.");
+        }
+    }
+
+    public void returnBook() {
+        this.setNumberOfCopies(this.getNumberOfCopies() + 1);
+        System.out.println("Thanks for returning the book. The are now " +
+                this.getNumberOfCopies() + " copies.");
+    }
+
 
 }

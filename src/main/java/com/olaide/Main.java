@@ -31,16 +31,14 @@ public class Main {
         borrowFromLib(members.get(1), books.get(2));
         borrowFromLib(members.get(2), books.get(2));
         borrowFromLib(members.get(3), books.get(3));
-        Member obj = membersQueue.removeMember();
-        Book borrowedBook = getRequestedBook(obj);
-        System.out.println("borrowedBook.getBookname() = " + borrowedBook.getBookname());
-        
-//        MembersQueue members = enqueueMembers();
-//        Book[] availableBooks = createBooks();
-//        while (!members.getMemberQueue().isEmpty()) {
-//            System.out.println(members.removeMember().getFullname());
-//            borrowFromLib(availableBooks[1]);
-//        }
+
+        while (!membersQueue.getMemberQueue().isEmpty()) {
+            Member currentBorrower = membersQueue.removeMember();
+            Book bookToBorrow =  getRequestedBook(currentBorrower);
+            System.out.println(currentBorrower.getFullname()
+                    + " borrowed the book: "+ bookToBorrow.getBookname() + ".");
+            bookToBorrow.borrowBook();
+        }
 
     }
 
@@ -63,19 +61,11 @@ public class Main {
         members.add(adeybee);
     }
 
-//    public static MembersQueue enqueueMembers() {
-//        Member [] clubMembers = createMembers();
-//        MembersQueue members = new MembersQueue();
-//        for (Member member: clubMembers) {
-//            members.addMember(member);
-//        }
-//        return members;
-//    }
 
     public static void createBooks() {
-        Book firstBook = new Book("Rich dad poor dad", "Robert Kiyosaki", 20, "ISBN001");
-        Book secondBook = new Book("Beyond the upper room", "Kenneth Hagin", 10, "ISBN002");
-        Book thirdBook = new Book("Walking in the miraculous", "David Oyedepo", 5, "ISBN003");
+        Book firstBook = new Book("Rich dad poor dad", "Robert Kiyosaki", 2, "ISBN001");
+        Book secondBook = new Book("Beyond the upper room", "Kenneth Hagin", 1, "ISBN002");
+        Book thirdBook = new Book("Walking in the miraculous", "David Oyedepo", 1, "ISBN003");
         Book fourthBook = new Book("21 laws of leadership", "John Maxwell", 3, "ISBN004");
         books.add(firstBook);
         books.add(secondBook);

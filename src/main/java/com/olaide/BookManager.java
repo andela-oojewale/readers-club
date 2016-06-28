@@ -59,7 +59,7 @@ public class BookManager {
 //    public void borrowBook(){
 //        if (this.getNumberOfCopies() > 0){
 //            System.out.println("You have been borrowed book with title '" + this.getBookname()+"'. "+
-//                    (this.getNumberOfCopies() - 1) + " copies remaining");
+//                    (this.getNumberOfCopies() - 1) + " copies of the book " + this.getBooks() + "remaining");
 //            this.setNumberOfCopies(this.getNumberOfCopies() - 1);
 //
 //        }
@@ -68,9 +68,9 @@ public class BookManager {
 //        }
 //    }
 //
-//    public void returnBook() {
-//        this.setNumberOfCopies(this.getNumberOfCopies() + 1);
-//        System.out.println("Thanks for returning the book. The are now " +
-//                this.getNumberOfCopies() + " copies.");
-//    }
+////    public void returnBook() {
+////        this.setNumberOfCopies(this.getNumberOfCopies() + 1);
+////        System.out.println("Thanks for returning the book. The are now " +
+////                this.getNumberOfCopies() + " copies.");
+////    }
 }
