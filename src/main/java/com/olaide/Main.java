@@ -1,15 +1,50 @@
 package com.olaide;
 
+import com.olaide.main.Book;
 import com.olaide.main.Member;
 import com.olaide.members.MembersQueue;
 import com.olaide.members.Staff;
 import com.olaide.members.Student;
 import org.joda.time.DateTime;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Main {
+
+    private static List<Member> members = new ArrayList<>();
+
+    private static List<Book> books = new ArrayList<>();
+
+    private static MembersQueue membersQueue = new MembersQueue();
+
+   static BookManager manager;
+
     public static void main(String[] args) {
-        DateTime date =  DateTime.now();
+        createBooks();
+        createMembers();
+        
+        manager = new BookManager(members, books);
+        
+        borrowFromLib(members.get(0), books.get(0));
+        borrowFromLib(members.get(1), books.get(2));
+        borrowFromLib(members.get(2), books.get(2));
+        borrowFromLib(members.get(3), books.get(3));
+        Member obj = membersQueue.removeMember();
+        Book borrowedBook = getRequestedBook(obj);
+        System.out.println("borrowedBook.getBookname() = " + borrowedBook.getBookname());
+        
+//        MembersQueue members = enqueueMembers();
+//        Book[] availableBooks = createBooks();
+//        while (!members.getMemberQueue().isEmpty()) {
+//            System.out.println(members.removeMember().getFullname());
+//            borrowFromLib(availableBooks[1]);
+//        }
+
+    }
+
+    public static void createMembers() {
         Member olaide = new Staff();
         olaide.setFullname("Olaide");
         olaide.setDateOfReg(new DateTime("2016-06-21T22:23:23.605+01:00"));
@@ -19,18 +54,41 @@ public class Main {
         Member tipsy = new Student();
         tipsy.setFullname("Tipsy");
         tipsy.setDateOfReg(new DateTime("2016-07-21T22:23:23.605+01:00"));
-        Member adebyi = new Student();
-        adebyi.setFullname("Adebiyi");
-        adebyi.setDateOfReg(new DateTime("2016-06-21T22:23:23.605+01:00"));
+        Member adeybee = new Student();
+        adeybee.setFullname("Adeybee");
+        adeybee.setDateOfReg(new DateTime("2016-06-21T22:23:23.605+01:00"));
+        members.add(olaide);
+        members.add(oscar);
+        members.add(tipsy);
+        members.add(adeybee);
+    }
 
-        MembersQueue members = new MembersQueue();
-        members.addMember(olaide);
-        members.addMember(adebyi);
-        members.addMember(tipsy);
-        members.addMember(oscar);
-        while (!members.getMemberQueue().isEmpty()){
-            System.out.println("com.olaide.members = " + members.removeMember().getFullname());
-        }
+//    public static MembersQueue enqueueMembers() {
+//        Member [] clubMembers = createMembers();
+//        MembersQueue members = new MembersQueue();
+//        for (Member member: clubMembers) {
+//            members.addMember(member);
+//        }
+//        return members;
+//    }
 
+    public static void createBooks() {
+        Book firstBook = new Book("Rich dad poor dad", "Robert Kiyosaki", 20, "ISBN001");
+        Book secondBook = new Book("Beyond the upper room", "Kenneth Hagin", 10, "ISBN002");
+        Book thirdBook = new Book("Walking in the miraculous", "David Oyedepo", 5, "ISBN003");
+        Book fourthBook = new Book("21 laws of leadership", "John Maxwell", 3, "ISBN004");
+        books.add(firstBook);
+        books.add(secondBook);
+        books.add(thirdBook);
+        books.add(fourthBook);
+    }
+
+    public static void borrowFromLib(Member member, Book book) {
+        manager.borrowBook(member, book);
+        membersQueue.addMember(member);
+    }
+    
+    public static Book getRequestedBook(Member member){
+        return manager.getRequest().get(member);
     }
 }

@@ -1,50 +1,52 @@
 package com.olaide.main;
 
 public class Book {
-    private String Bookname;
-    private String Author;
-    private String NumberOfCopies;
-    private String IsbnNumber;
+    private String bookname;
+    private String author;
+    private Integer numberOfCopies;
+    private String isbnNumber;
 
     public Book() {
     }
 
-    public Book(String bookname, String author, String numberOfCopies, String isbnNumber) {
-        Bookname = bookname;
-        Author = author;
-        NumberOfCopies = numberOfCopies;
-        IsbnNumber = isbnNumber;
+    public Book(String bookname, String author, Integer numberOfCopies, String isbnNumber) {
+        this.bookname = bookname;
+        this.author = author;
+        this.numberOfCopies = numberOfCopies;
+        this.isbnNumber = isbnNumber;
     }
 
     public String getBookname() {
-        return Bookname;
+        return bookname;
     }
 
     public void setBookname(String bookname) {
-        Bookname = bookname;
+        this.bookname = bookname;
     }
 
     public String getAuthor() {
-        return Author;
+        return author;
     }
 
     public void setAuthor(String author) {
-        Author = author;
+        this.author = author;
     }
 
-    public String getNumberOfCopies() {
-        return NumberOfCopies;
+    public Integer getNumberOfCopies() {
+        return numberOfCopies;
     }
 
-    public void setNumberOfCopies(String numberOfCopies) {
-        NumberOfCopies = numberOfCopies;
+    public void setNumberOfCopies(Integer numberOfCopies) {
+        this.numberOfCopies = numberOfCopies;
     }
 
     public String getIsbnNumber() {
-        return IsbnNumber;
+        return isbnNumber;
     }
 
     public void setIsbnNumber(String isbnNumber) {
-        IsbnNumber = isbnNumber;
+        this.isbnNumber = isbnNumber;
     }
+
+
 }
