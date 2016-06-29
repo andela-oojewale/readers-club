@@ -33,11 +33,20 @@ public class Main {
         borrowFromLib(members.get(3), books.get(3));
 
         while (!membersQueue.getMemberQueue().isEmpty()) {
+            String msg;
             Member currentBorrower = membersQueue.removeMember();
             Book bookToBorrow =  getRequestedBook(currentBorrower);
-            System.out.println(currentBorrower.getFullname()
-                    + " borrowed the book: "+ bookToBorrow.getBookname() + ".");
-            bookToBorrow.borrowBook();
+            if (bookToBorrow.getNumberOfCopies() > 0) {
+                bookToBorrow.borrowBook();
+                msg = currentBorrower.getFullname() + " borrowed the book: " +
+                        bookToBorrow.getBookname() + ". " + bookToBorrow.getNumberOfCopies() +
+                        " copies remaining.";
+            }
+            else {
+                msg = "Hey " + currentBorrower.getFullname() + "! The book: '" +
+                        bookToBorrow.getBookname() + "' is unavailable @tm. You could borrow another book.";
+            }
+            System.out.println(msg);
         }
 
     }
