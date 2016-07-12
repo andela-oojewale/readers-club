@@ -26,11 +26,10 @@ public class Main {
         createMembers();
         
         manager = new BookManager(members, books);
-        
-        borrowFromLib(members.get(0), books.get(0));
-        borrowFromLib(members.get(1), books.get(2));
-        borrowFromLib(members.get(2), books.get(2));
-        borrowFromLib(members.get(3), books.get(3));
+
+        for (int i = 0; i < members.size(); i++) {
+            borrowFromLib(members.get(i), books.get(0));
+        }
 
         while (!membersQueue.getMemberQueue().isEmpty()) {
             String msg;

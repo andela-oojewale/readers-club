@@ -22,22 +22,6 @@ public class BookManager {
         request = new HashMap<>();
     }
 
-//    public List<Member> getMembers() {
-//        return members;
-//    }
-//
-//    public void setMembers(List<Member> members) {
-//        this.members = members;
-//    }
-//
-//    public List<Book> getBooks() {
-//        return books;
-//    }
-//
-//    public void setBooks(List<Book> books) {
-//        this.books = books;
-//    }
-
     private boolean isbookAvailable(Book book) {
         return books.contains(book);
     }
@@ -55,5 +39,16 @@ public class BookManager {
     public Map<Member, Book> getRequest() {
         return request;
     }
+
+//    public void borrowBook(){
+//        this.setNumberOfCopies(this.getNumberOfCopies() - 1);
+//    }
+//
+//    public void returnBook() {
+//        this.setNumberOfCopies(this.getNumberOfCopies() + 1);
+//        System.out.println("Thanks for returning the book. The are now " +
+//                this.getNumberOfCopies() + " copies.");
+//    }
+
 
 }

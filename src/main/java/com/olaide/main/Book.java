@@ -48,15 +48,6 @@ public class Book {
         this.isbnNumber = isbnNumber;
     }
 
-    public void borrowBook(){
-        this.setNumberOfCopies(this.getNumberOfCopies() - 1);
-    }
-
-    public void returnBook() {
-        this.setNumberOfCopies(this.getNumberOfCopies() + 1);
-        System.out.println("Thanks for returning the book. The are now " +
-                this.getNumberOfCopies() + " copies.");
-    }
 
 
 }
